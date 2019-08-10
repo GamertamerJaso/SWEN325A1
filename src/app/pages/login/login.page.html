@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start"> </ion-buttons>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form>
+    <ion-list lines="full" class="ion-no-margin ion-no-padding">
+      <ion-item>
+        <ion-label position="stacked">Email:</ion-label>
+        <ion-input
+          type="email"
+          [(ngModel)]="email"
+          name="email"
+          placeholder="Enter email"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Password:</ion-label>
+        <ion-input
+          [(ngModel)]="password"
+          name="password"
+          placeholder="Enter password"
+          type="password"
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-button expand="block" type="submit" (click)="loginUser()">Login</ion-button>
+  </form>
+  <p>{{ email }}{{ password }}</p>
+  <ion-button expand="block" fill="outline" type="submit" padding="10px"
+    >Forgot Password?</ion-button
+  >
+  <ion-button expand="block" fill="outline" type="submit" padding="10px">Create Account</ion-button>
+</ion-content>
