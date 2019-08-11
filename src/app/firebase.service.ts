@@ -58,4 +58,8 @@ export class FirebaseService {
   //       .then(res => resolve(res), err => reject(err));
   //   });
   // }
+
+  loginUser(email, password): Promise<firebase.auth.UserCredential> {
+    return firebase.auth().signInWithEmailAndPassword(email, password);
+  }
 }

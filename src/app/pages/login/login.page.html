@@ -6,34 +6,39 @@
 </ion-header>
 
 <ion-content>
-  <form>
+  <form [formGroup]="loginForm">
     <ion-list lines="full" class="ion-no-margin ion-no-padding">
       <ion-item>
         <ion-label position="stacked">Email:</ion-label>
         <ion-input
           type="email"
           [(ngModel)]="email"
-          name="email"
+          formControlName="email"
           placeholder="Enter email"
+          [class.invalid]="!loginForm.controls['email'].valid && loginForm.controls['email'].touched"
         ></ion-input>
+      </ion-item>
+
+      <ion-item
+        class="error-message"
+        *ngIf="!loginForm.controls['email'].valid && loginForm.controls['email'].touched">
+        <ion-label>Please enter a valid email address.</ion-label>
       </ion-item>
 
       <ion-item>
         <ion-label position="stacked">Password:</ion-label>
         <ion-input
           [(ngModel)]="password"
-          name="password"
+          formControlName="password"
           placeholder="Enter password"
           type="password"
         ></ion-input>
       </ion-item>
     </ion-list>
 
-    <ion-button expand="block" type="submit" (click)="loginUser()">Login</ion-button>
+    <ion-button expand="block" type="submit" (click)="processForm(loginForm)" [disabled]="!loginForm.valid">Login</ion-button>
   </form>
   <p>{{ email }}{{ password }}</p>
-  <ion-button expand="block" fill="outline" type="submit" padding="10px"
-    >Forgot Password?</ion-button
-  >
-  <ion-button expand="block" fill="outline" type="submit" padding="10px">Create Account</ion-button>
+  <ion-button expand="block" fill="outline" type="submit" padding="10px" routerLink="/passwordreset">Forgot Password?</ion-button>
+  <ion-button expand="block" fill="outline" type="submit" padding="10px" routerLink="/signup">Create Account</ion-button>
 </ion-content>
