@@ -7,24 +7,15 @@ const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full'
   },
-  {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
-  },
-  {
-    path: 'list',
-    loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
-  },
+  { path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule) },
+  { path: 'quizselection',loadChildren: () => import('./pages/quizselection/Quizselection.module').then(m => m.QuizselectionPageModule) },
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
   { path: 'signup', loadChildren: './pages/signup/signup.module#SignupPageModule' },
-  {
-    path: 'passwordreset',
-    loadChildren: './pages/passwordreset/passwordreset.module#PasswordresetPageModule'
-  },
-  {
-    path: 'quizselection',
-    loadChildren: './pages/quizselection/quizselection.module#QuizselectionPageModule'
-  }
+  { path: 'passwordreset',loadChildren: './pages/passwordreset/passwordreset.module#PasswordresetPageModule' },
+  { path: 'leaderboard', loadChildren: './pages/leaderboard/leaderboard.module#LeaderboardPageModule' },
+  { path: 'quiz1', loadChildren: './pages/quiz1/quiz1.module#Quiz1PageModule' },
+
+
 ];
 
 @NgModule({

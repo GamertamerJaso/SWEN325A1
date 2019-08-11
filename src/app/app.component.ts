@@ -14,24 +14,24 @@ import { firebaseConfig } from './credentials';
 export class AppComponent {
   public appPages = [
     {
-      title: 'Login',
-      url: '/login',
-      icon: 'Home'
-    },
-    {
       title: 'Home',
       url: '/home',
       icon: 'home'
     },
     {
-      title: 'List',
-      url: '/list',
+      title: 'Quiz Selection',
+      url: '/quizselection',
       icon: 'list'
     },
     {
-      title: 'Sign Up',
-      url: '/signup',
+      title: 'Leaderboard',
+      url: '/leaderboard',
       icon: 'list'
+    },
+    {
+      title: 'Login',
+      url: '/login',
+      icon: 'Home'
     }
   ];
 

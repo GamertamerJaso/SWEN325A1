@@ -1,27 +1,32 @@
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { IonicModule } from '@ionic/angular';
 
-import { QuizselectionPage } from './quizselection.page';
+import { QuizselectionPage } from './quizselection';
 
 describe('QuizselectionPage', () => {
   let component: QuizselectionPage;
   let fixture: ComponentFixture<QuizselectionPage>;
+  let quizselectionPage: HTMLElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ QuizselectionPage ],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    })
-    .compileComponents();
-  }));
+      imports: [IonicModule.forRoot()]
+    }).compileComponents();
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(QuizselectionPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
+  }));
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have a quizselection of 10 elements', () => {
+    quizselectionPage = fixture.nativeElement;
+    const items = quizselectionPage.querySelectorAll('ion-item');
+    expect(items.length).toEqual(10);
+  });
+
 });
