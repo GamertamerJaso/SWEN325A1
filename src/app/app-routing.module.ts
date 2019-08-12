@@ -13,7 +13,10 @@ const routes: Routes = [
   { path: 'signup', loadChildren: './pages/signup/signup.module#SignupPageModule' },
   { path: 'passwordreset',loadChildren: './pages/passwordreset/passwordreset.module#PasswordresetPageModule' },
   { path: 'leaderboard', loadChildren: './pages/leaderboard/leaderboard.module#LeaderboardPageModule' },
-  { path: 'quiz1', loadChildren: './pages/quiz1/quiz1.module#Quiz1PageModule' },
+  { path: 'dota2quiz', loadChildren: './pages/quizzes/dota2quiz/dota2quiz.module#Dota2quizPageModule' },
+  { path: 'generalknowledgequiz1', loadChildren: './pages/quizzes/generalknowledgequiz1/generalknowledgequiz1.module#Generalknowledgequiz1PageModule' },
+  { path: 'moretocome', loadChildren: './pages/quizzes/moretocome/moretocome.module#MoretocomePageModule' },
+
 
 
 ];

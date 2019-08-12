@@ -11,9 +11,11 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of items">
+    <ion-item *ngFor="let item of items" routerLink="/{{item.link}}">
+     
       <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
+     {{item.title}}
+   
       <div class="item-note" slot="end">
         {{item.note}}
       </div>
