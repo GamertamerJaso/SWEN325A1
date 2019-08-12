@@ -11,13 +11,12 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of items" routerLink="/{{item.link}}">
-     
+    <ion-item *ngFor="let item of items" routerLink="/dota2quiz" (click)="getQuiz(item.link)">
       <ion-icon [name]="item.icon" slot="start"></ion-icon>
-     {{item.title}}
-   
+      {{ item.title }}
+
       <div class="item-note" slot="end">
-        {{item.note}}
+        {{ item.note }}
       </div>
     </ion-item>
   </ion-list>

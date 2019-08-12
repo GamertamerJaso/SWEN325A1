@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, DoBootstrap } from '@angular/core';
 // import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
@@ -20,9 +20,12 @@ import 'firebase/firestore';
   providedIn: 'root'
 })
 export class FirebaseService {
-  public loggedIn: boolean=false;
-  
-  constructor() {}
+  public loggedIn: boolean = false;
+  db;
+
+  constructor() {
+    this.db = firebase.firestore();
+  }
 
   // private afAuth: AngularFireAuth
 
@@ -79,7 +82,12 @@ export class FirebaseService {
       });
   }
 
-  resetPassword(email:string): Promise<void> {
+  resetPassword(email: string): Promise<void> {
     return firebase.auth().sendPasswordResetEmail(email);
+  }
+
+  getDatabase(name: string) {
+    console.log(name + 'fuck u');
+    return this.db.collection(name).doc('Answers');
   }
 }
