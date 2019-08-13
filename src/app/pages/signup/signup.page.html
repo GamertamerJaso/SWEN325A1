@@ -3,7 +3,7 @@
       <ion-buttons slot="start">
           <ion-back-button defaultHref="/login"></ion-back-button>
       </ion-buttons>
-    <ion-title>Join Quizical Now</ion-title>
+    <ion-title>Join Quizzical Now</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -20,6 +20,17 @@
                 [class.invalid]="!signupForm.controls['first'].valid && signupForm.controls['first'].touched"
               ></ion-input>
             </ion-item>
+
+            <ion-item>
+                <ion-label position="stacked">Last name:</ion-label>
+                <ion-input
+                  type="lstname"
+                  [(ngModel)]="lstname"
+                  formControlName="last"
+                  placeholder="Enter your last name"
+                  [class.invalid]="!signupForm.controls['last'].valid && signupForm.controls['last'].touched"
+                ></ion-input>
+              </ion-item>
             
             <ion-item>
             <ion-label position="stacked">Email:</ion-label>

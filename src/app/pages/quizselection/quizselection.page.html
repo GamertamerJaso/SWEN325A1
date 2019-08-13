@@ -4,25 +4,23 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Quizselection
+      Quiz Selection
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of items" routerLink="/dota2quiz" (click)="getQuiz(item.link)">
+    <ion-item *ngFor="let item of items" routerLink="/quiz" (click)="getQuiz(item.link,1)">
       <ion-icon [name]="item.icon" slot="start"></ion-icon>
       {{ item.title }}
-
       <div class="item-note" slot="end">
         {{ item.note }}
       </div>
     </ion-item>
+    <ion-item routerLink="/moretocome">
+      <ion-icon slot="start"></ion-icon>
+      More to come
+    </ion-item>
   </ion-list>
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
-    </div>
-  -->
 </ion-content>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from 'src/app/firebase.service';
+import { FirebaseService } from 'src/app/services/firebase.service';
 import * as firebase from 'firebase/app';
 import { promise } from 'protractor';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
@@ -12,13 +12,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.page.scss']
 })
 export class SignupPage implements OnInit {
-  fstname;
-  email: string;
   password;
-  promise;
   public signupForm: FormGroup;
   public loading: HTMLIonLoadingElement;
-  user;
 
   constructor(
     private firebaseService: FirebaseService,
@@ -29,6 +25,7 @@ export class SignupPage implements OnInit {
   ) {
     this.signupForm = this.formBuilder.group({
       first: ['',Validators.compose([Validators.required, Validators.minLength(3)])],
+      last: ['',Validators.compose([Validators.required, Validators.minLength(3)])],
       email: ['',Validators.compose([Validators.required, Validators.email])],
       password: ['',Validators.compose([Validators.required, Validators.minLength(6)]),], });}
 
@@ -37,7 +34,7 @@ export class SignupPage implements OnInit {
   async processForm(signupForm: FormGroup): Promise<void> {
     this.loading = await this.loadingCtrl.create();
     await this.loading.present();
-    this.firebaseService.signupUser(signupForm.value.email, this.password).then(
+    this.firebaseService.signupUser(signupForm.value.first, signupForm.value.last, signupForm.value.email, this.password).then(
       () => {
         this.loading.dismiss().then(() => {
           this.router.navigateByUrl('home');

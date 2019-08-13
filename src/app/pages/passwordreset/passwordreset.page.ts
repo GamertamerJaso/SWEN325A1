@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from 'src/app/firebase.service';
+import { FirebaseService } from 'src/app/services/firebase.service';
 import * as firebase from 'firebase/app';
 import { promise } from 'protractor';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';

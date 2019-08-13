@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Dota2quizPage } from 'src/app/pages/quizzes/dota2quiz/dota2quiz.page';
-import { QuizGrabberService } from 'src/app/quiz-grabber.service';
+import { QuizGrabberService } from 'src/app/services/quiz-grabber.service';
 
 @Component({
   selector: 'app-quizselection',
@@ -49,9 +48,9 @@ export class QuizselectionPage implements OnInit {
     'Movie Quiz 1',
     'Are you really a film buff? Lets find out',
     'generalknowledgequiz1',
-    'More to come',
-    '',
-    'moretocome'
+    'Music Quiz 1',
+    'Are you worthy of the Grammys of music knowledge',
+    'musicquiz1'
   ];
   public items: Array<{ title: string; note: string; link: string; icon: string }> = [];
   constructor(private quizService: QuizGrabberService) {
@@ -67,10 +66,9 @@ export class QuizselectionPage implements OnInit {
 
   ngOnInit() {}
 
-  getQuiz(name: string): void {
-    let newName = name + '/Q1';
-    console.log(newName);
-    this.quizService.setCurrentQuiz(newName);
+  getQuiz(name: string, questionNum: number): void {
+    let newName = name;
+    this.quizService.setCurrentQuiz(newName, questionNum);
   }
   // add back when alpha.4 is out
   // navigate(item) {

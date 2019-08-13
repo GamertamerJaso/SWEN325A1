@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+
+import { FirebaseService } from 'src/app/services/firebase.service';
 import * as firebase from 'firebase/app';
 import { firebaseConfig } from './credentials';
 
@@ -28,13 +30,8 @@ export class AppComponent {
       url: '/leaderboard',
       icon: 'list'
     },
-    {
-      title: 'Login',
-      url: '/login',
-      icon: 'Home'
-    }
   ];
-
+ 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -45,9 +42,13 @@ export class AppComponent {
   }
 
   initializeApp() {
-    this.platform.ready().then(() => {
+      this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+  }
+
+  async logoutUser(): Promise<void> {
+    return firebase.auth().signOut();
   }
 }

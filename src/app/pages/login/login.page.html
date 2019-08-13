@@ -38,7 +38,6 @@
 
     <ion-button expand="block" type="submit" (click)="processForm(loginForm)" [disabled]="!loginForm.valid">Login</ion-button>
   </form>
-  <p>{{ email }}{{ password }}</p>
   <ion-button expand="block" fill="outline" type="submit" padding="10px" routerLink="/passwordreset">Forgot Password?</ion-button>
   <ion-button expand="block" fill="outline" type="submit" padding="10px" routerLink="/signup">Create Account</ion-button>
 </ion-content>
