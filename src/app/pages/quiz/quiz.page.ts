@@ -57,7 +57,7 @@ export class QuizPage implements OnInit {
         console.log(this.answers[0]);
         console.log(this.score);
     }
-    if(this.i<3){
+    if(this.i<5){
       this.i++;
       this.quizService.setQuestionNum(this.i);
       this.quizService.getQuiz();
