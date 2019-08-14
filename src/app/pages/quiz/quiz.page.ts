@@ -53,9 +53,6 @@ export class QuizPage implements OnInit {
   setQuestionNum(value: number){
     if(this.answers[0]==this.answers[this.order[value]]){
         this.score=this.score+1;
-        console.log(this.answers[this.order[value]]);
-        console.log(this.answers[0]);
-        console.log(this.score);
     }
     if(this.i<5){
       this.i++;
@@ -67,7 +64,7 @@ export class QuizPage implements OnInit {
       this.question = this.quizService.question;
     }
     else{
-      this.quizService.uploadScoreToLeaderboard(this.score);
+      this.quizService.presentScore(this.score);
     }
   }
 }

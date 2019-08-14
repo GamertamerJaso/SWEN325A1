@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-jasonspp
-=======
-# SWEN325A1
->>>>>>> 6106d47a5cce7170cbf96af217c844e91c0641f9
+To run use npm install
+and then run ionic serve
+the leaderboards arent entirely functionally

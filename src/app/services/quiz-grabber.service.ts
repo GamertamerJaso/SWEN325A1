@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FirebaseService } from 'src/app/services/firebase.service';
+import { AlertController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,9 @@ export class QuizGrabberService {
   questionNum;
   currentQuiz: string;
   currentQuestion: number;
+  score;
 
-  constructor(private firebase: FirebaseService) {}
+  constructor(private firebase: FirebaseService, public alertController: AlertController) {}
 
   getQuiz() {
     let path = 'quizzes/' + this.currentQuiz +'/Q'+ this.questionNum;
@@ -46,15 +48,26 @@ export class QuizGrabberService {
   }
 
   setQuestionNum(i: number){
-    this.questionNum=i;//this.questionNum+1;
+    this.questionNum=i;
     this.quiz = null;
     this.answers = [];
     this.order = [];
     this.question = [];
   }
 
-  uploadScoreToLeaderboard(score: number){
-      window.location.href='/leaderboard';
-      console.log(this.currentQuiz+' '+score);
+  goToLeaderboard(){
+    this.firebase.clearFirst(1, this.firebase.firstName, this.firebase.lastName, this.currentQuiz, this.score);
+    window.location.href='/leaderboard';
+  }
+
+  async presentScore(score: number) {
+    this.score=score;
+    const alert = await this.alertController.create({
+      header: 'Your results',
+      message: 'You got '+score+'/5 on '+this.currentQuiz,
+      buttons: ['OK']
+    });
+    await alert.present();
+    await alert.onDidDismiss().then(() => { this.goToLeaderboard();})
   }
 }

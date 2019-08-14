@@ -12,14 +12,12 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let item of items" routerLink="/quiz" (click)="getQuiz(item.link,1)">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
       {{ item.title }}
       <div class="item-note" slot="end">
-        {{ item.note }}
+        <font size="2">{{ item.note }}</font>
       </div>
     </ion-item>
     <ion-item routerLink="/moretocome">
-      <ion-icon slot="start"></ion-icon>
       More to come
     </ion-item>
   </ion-list>

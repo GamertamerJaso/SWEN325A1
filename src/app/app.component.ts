@@ -23,7 +23,7 @@ export class AppComponent {
     {
       title: 'Quiz Selection',
       url: '/quizselection',
-      icon: 'list'
+      icon: 'radio-button-on'
     },
     {
       title: 'Leaderboard',

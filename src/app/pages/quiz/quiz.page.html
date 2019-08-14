@@ -17,21 +17,21 @@
     </ion-item> -->
     <ion-item>
         {{ answers[order[0]] }}
-        <ion-radio expand="block" fill="outline" value=0 (click)="setQuestionNum(0)" [checked]="false"></ion-radio>
+        <ion-radio slot="end" expand="block" fill="outline" value=0 (click)="setQuestionNum(0)" [checked]="false"></ion-radio>
       </ion-item>
       <ion-item>
           {{ answers[order[1]] }}
-          <ion-radio expand="block" fill="outline" value=1 (click)="setQuestionNum(1)" checked={{isChecked}}>    
+          <ion-radio slot="end" expand="block" fill="outline" value=1 (click)="setQuestionNum(1)" checked={{isChecked}}>    
           </ion-radio>
         </ion-item>
         <ion-item>
             {{ answers[order[2]] }}
-            <ion-radio expand="block" fill="outline" value=2 (click)="setQuestionNum(2)" checked={{isChecked}}>    
+            <ion-radio slot="end" expand="block" fill="outline" value=2 (click)="setQuestionNum(2)" checked={{isChecked}}>    
             </ion-radio>
           </ion-item>
           <ion-item>
               {{ answers[order[3]] }}
-              <ion-radio expand="block" fill="outline" value=3 (click)="setQuestionNum(3)" checked={{isChecked}}>    
+              <ion-radio slot="end" expand="block" fill="outline" value=3 (click)="setQuestionNum(3)" checked={{isChecked}}>    
               </ion-radio>
             </ion-item>
   </ion-radio-group>
